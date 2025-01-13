@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/card";
 import {
   BookOpen,
-  CheckCircle,
-  XCircle,
+  // CheckCircle,
+  // XCircle,
   ArrowRight,
   RotateCcw,
   Award,

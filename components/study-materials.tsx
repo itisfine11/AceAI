@@ -14,7 +14,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Upload, BookOpen, FileText, Send } from "lucide-react";
+import { Upload, FileText, Send } from "lucide-react";
 import { Quiz } from "@/components/quiz";
 
 function ChatInterface({ context }: { context: string }) {
