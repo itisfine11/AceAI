@@ -18,7 +18,7 @@ export function Chat() {
     { role: "user" | "assistant"; content: string }[]
   >([]);
   const [input, setInput] = useState("");
-  const [semester, setSemester] = useState("");
+  // const [semester, setSemester] = useState("");
   const [isWebSearch, setIsWebSearch] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
