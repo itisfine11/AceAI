@@ -5,7 +5,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",  # Adjust this if your Next.js app runs on a different port
-    "https://ace-l6o4aosk0-abdul-basits-projects-ed42da91.vercel.app",  # Replace with your actual deployed Next.js app URL
+    "https://ace-ai-ashen.vercel.app",  # Replace with your actual deployed Next.js app URL
 ]
 
 app.add_middleware(
