@@ -4,6 +4,8 @@ import { Chat } from "@/components/chat";
 import { useEffect } from "react";
 
 export default function Home() {
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL as string;
+  console.log(url);
   useEffect(() => {
     const testCORS = async () => {
       try {
@@ -28,7 +30,7 @@ export default function Home() {
           );
         }
       } catch (error) {
-        console.error("Error during CORS test:", error);
+        console.error("Error", error);
       }
     };
 
