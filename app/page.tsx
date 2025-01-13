@@ -1,7 +1,39 @@
+"use client";
 import { Sidebar } from "@/components/sidebar";
 import { Chat } from "@/components/chat";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const testCORS = async () => {
+      try {
+        const response = await fetch(
+          process.env.NEXT_PUBLIC_BACKEND_URL as string,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("CORS test successful:", data);
+        } else {
+          console.error(
+            "CORS test failed:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Error during CORS test:", error);
+      }
+    };
+
+    testCORS();
+  }, []);
   return (
     <div className="flex h-screen bg-gradient-to-br from-indigo-100 to-purple-100">
       <Sidebar />
