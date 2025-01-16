@@ -14,7 +14,8 @@ export default function Home() {
           {
             method: "GET",
             headers: {
-              "Content-Type": "application/json",
+              "Content-Type": "application/json", 
+              "Access-Control-Allow-Origin":"https://ace-ai-ashen.vercel.app", 
             },
           }
         );
