@@ -4,8 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",  # Adjust this if your Next.js app runs on a different port
-    "https://ace-ai-ashen.vercel.app",  # Replace with your actual deployed Next.js app URL
+    "http://localhost:3000/",  # Adjust this if your Next.js app runs on a different port
+    "https://ace-ai-ashen.vercel.app/",
+    "*",  # Replace with your actual deployed Next.js app URL
 ]
 
 app.add_middleware(
