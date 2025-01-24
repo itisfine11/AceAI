@@ -1,5 +1,5 @@
 import os
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 

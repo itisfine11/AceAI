@@ -1,5 +1,5 @@
 from langchain.agents import initialize_agent, Tool
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 from langchain_community.utilities import GoogleSerperAPIWrapper
 from api.core.config import settings
 

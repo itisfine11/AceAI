@@ -1,4 +1,4 @@
-from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
 from api.core.config import settings
 
 def get_openai_client():

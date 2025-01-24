@@ -1,4 +1,4 @@
-from langchain.document_loaders import UnstructuredFileLoader
+from langchain_community.document_loaders import UnstructuredFileLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 def process_document(file_path: str):
