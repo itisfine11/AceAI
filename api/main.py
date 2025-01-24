@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from api.routers import document, interaction, rag, web_search
 
 app = FastAPI()
 
@@ -22,3 +23,7 @@ app.add_middleware(
 async def read_root():
     return {"message": "Hello, FastAPI on Vercel!"}
 
+app.include_router(document.router, prefix="/api/documents", tags=["Documents"])
+app.include_router(interaction.router, prefix="/api/interaction", tags=["Interaction"])
+app.include_router(rag.router, prefix="/api/rag", tags=["RAG"])
+app.include_router(web_search.router, prefix="/api/web-search", tags=["Web Search"])
