@@ -3,5 +3,5 @@ uvicorn
 python-dotenv
 langchain
 openai
-serper
+serpapi
 python-multipart
