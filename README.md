@@ -82,7 +82,7 @@ project-root/
 ## Environment Variables
 
 ### Backend `.env`
-Create a `.env` file in the `app/` directory with the following variables:
+Create a `.env` file in the root directory with the following variables:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key
@@ -94,7 +94,7 @@ UPLOAD_DIRECTORY=uploads/
 Create a `.env` file in the root directory with:
 
 ```env
-NEXT_PUBLIC_BACKEND_URL=http://127.0.0.1:8000/api
+NEXT_PUBLIC_BACKEND_URL=http://127.0.0.1:8000/
 ```
 
 ---
@@ -108,7 +108,7 @@ NEXT_PUBLIC_BACKEND_URL=http://127.0.0.1:8000/api
    vercel --prod
    ```
 
-2. **Backend**: Configure `vercel.json` in the `app/` directory:
+2. **Backend**: Configure `vercel.json` in the `api/` directory:
    ```json
    {
      "builds": [
