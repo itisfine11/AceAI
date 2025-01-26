@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
-from api.services.interaction_service import generate_response
+from services.interaction_service import generate_response
 
 router = APIRouter()
 

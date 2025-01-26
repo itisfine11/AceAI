@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from api.services.rag_service import get_rag_chain
+from services.rag_service import get_rag_chain
 
 router = APIRouter()
 

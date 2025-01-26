@@ -5,3 +5,4 @@ langchain
 openai
 serpapi
 python-multipart
+langchain_community

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, UploadFile, File, HTTPException
 import os
-from api.services.document_service import process_document
-from api.core.config import settings
+from services.document_service import process_document
+from core.config import settings
 
 router = APIRouter()
 

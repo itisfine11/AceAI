@@ -1,7 +1,7 @@
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Pinecone
-from api.core.dependencies import get_openai_client
+from core.dependencies import get_openai_client
 
 def get_rag_chain(pinecone_client):
     llm = get_openai_client()

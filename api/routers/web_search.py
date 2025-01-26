@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
-from api.services.web_search_agent import get_web_search_agent
+from services.web_search_agent import get_web_search_agent
 
 router = APIRouter()
 

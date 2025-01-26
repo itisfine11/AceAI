@@ -1,7 +1,7 @@
 from langchain.agents import initialize_agent, Tool
 from langchain_community.llms import OpenAI
 from langchain_community.utilities import GoogleSerperAPIWrapper
-from api.core.config import settings
+from core.config import settings
 
 def get_web_search_agent():
     llm = OpenAI(api_key=settings.OPENAI_API_KEY)
