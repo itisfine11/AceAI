@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   MessageCircle,
   FolderOpen,
-  // BookOpen,
+  BookOpen,
   History,
   Settings,
 } from "lucide-react";
@@ -34,12 +34,12 @@ export function Sidebar() {
               Study Materials
             </Button>
           </Link>
-          {/* <Link href="/quiz">
+          <Link href="/upload">
             <Button variant="ghost" className="w-full justify-start">
               <BookOpen className="mr-2 h-4 w-4" />
-              Quizzes
+              Upload
             </Button>
-          </Link> */}
+          </Link>
           <Link href="/chat-history">
             <Button variant="ghost" className="w-full justify-start">
               <History className="mr-2 h-4 w-4" />

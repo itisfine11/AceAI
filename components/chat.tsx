@@ -4,13 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Send, Globe, Book } from "lucide-react";
 
 export function Chat() {
@@ -18,7 +18,7 @@ export function Chat() {
     { role: "user" | "assistant"; content: string }[]
   >([]);
   const [input, setInput] = useState("");
-  // const [semester, setSemester] = useState("");
+  const [course, setCourse] = useState("");
   const [isWebSearch, setIsWebSearch] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -59,17 +59,17 @@ export function Chat() {
   return (
     <div className="flex flex-col h-full bg-white rounded-lg shadow-lg m-4">
       <div className="p-4 border-b flex justify-between items-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-t-lg">
-        {/* <Select value={semester} onValueChange={setSemester}>
+        <Select value={course} onValueChange={setCourse}>
           <SelectTrigger className="w-[180px] bg-white text-gray-900">
-            <SelectValue placeholder="Select semester" />
+            <SelectValue placeholder="Select Course" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="1">Semester 1</SelectItem>
-            <SelectItem value="2">Semester 2</SelectItem>
-            <SelectItem value="3">Semester 3</SelectItem>
-            <SelectItem value="4">Semester 4</SelectItem>
+            <SelectItem value="1">Course 1</SelectItem>
+            <SelectItem value="2">Course 2</SelectItem>
+            <SelectItem value="3">Course 3</SelectItem>
+            <SelectItem value="4">Course 4</SelectItem>
           </SelectContent>
-        </Select> */}
+        </Select>
         <h2 className="text-xl font-bold">BrainBoost Chat</h2>
         <div className="flex items-center space-x-2">
           <Button
