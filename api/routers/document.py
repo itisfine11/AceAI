@@ -1,6 +1,8 @@
+# routers/document.py
 from fastapi import APIRouter, HTTPException, UploadFile, File, Form
 from services.pinecone_service import store_in_index
 from services.document_service import process_document
+import os
 
 router = APIRouter()
 
@@ -10,18 +12,22 @@ async def upload_document(
     index_name: str = Form(...),
 ):
     """
-    Upload a document and store it in the specified Pinecone index.
+    Upload a document and store its embeddings in the specified Pinecone index.
     """
     try:
-        # Save file temporarily
-        file_path = f"temp/{file.filename}"
+        # Ensure the temporary directory exists
+        temp_dir = "temp"
+        os.makedirs(temp_dir, exist_ok=True)
+
+        # Save the uploaded file temporarily
+        file_path = os.path.join(temp_dir, file.filename)
         with open(file_path, "wb") as f:
             f.write(await file.read())
         
-        # Process the document
+        # Process the document (load and split into chunks)
         documents = process_document(file_path)
-        
-        # Store in the specified Pinecone index
+        print(f"Processed {len(documents)} document chunks")
+        # Store the processed document chunks in the specified Pinecone index
         store_in_index(index_name, documents)
         
         return {"message": f"Document stored in index: {index_name}"}

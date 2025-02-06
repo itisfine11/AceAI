@@ -16,7 +16,7 @@ export function UploadDocument() {
   const [course, setCourse] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [uploadMessage, setUploadMessage] = useState("");
-  const [isUploading, setIsUploading] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -30,32 +30,34 @@ export function UploadDocument() {
       return;
     }
 
-    setIsUploading(true);
+    setIsProcessing(true);
     setUploadMessage("");
 
-    const formData = new FormData();
-    formData.append("index_name", course);
-    formData.append("file", file);
-
     try {
+      // Create a FormData instance and append the file and course name
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("index_name", course);
+
+      // Send the form data to your API endpoint
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/documents/upload`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/documents/upload`,
         {
           method: "POST",
           body: formData,
         }
       );
+      const data = await response.json();
 
-      const result = await response.json();
-      if (response.ok) {
-        setUploadMessage(`Success: ${result.message}`);
-      } else {
-        setUploadMessage(`Error: ${result.detail}`);
+      if (!response.ok) {
+        throw new Error(data.error || "Error processing file");
       }
-    } catch (error) {
-      setUploadMessage("Error uploading document.");
+
+      setUploadMessage(data.message);
+    } catch (error: any) {
+      setUploadMessage(`Error: ${error.message}`);
     } finally {
-      setIsUploading(false);
+      setIsProcessing(false);
     }
   };
 
@@ -81,7 +83,7 @@ export function UploadDocument() {
         <div className="mb-4">
           <Input
             type="file"
-            accept=".pdf,.txt,.docx"
+            accept=".pdf,.txt,.docx,.jpeg,.png"
             onChange={handleFileChange}
             className="w-full bg-gray-50 border border-gray-300 rounded-md"
           />
@@ -89,10 +91,10 @@ export function UploadDocument() {
         <Button
           onClick={handleUpload}
           className="w-full bg-indigo-600 hover:bg-indigo-700 flex items-center justify-center"
-          disabled={isUploading}
+          disabled={isProcessing}
         >
           <Upload className="h-4 w-4 mr-2" />
-          {isUploading ? "Uploading..." : "Upload"}
+          {isProcessing ? "Processing..." : "Upload"}
         </Button>
         {uploadMessage && (
           <div
