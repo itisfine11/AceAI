@@ -54,8 +54,10 @@ export function UploadDocument() {
       }
 
       setUploadMessage(data.message);
-    } catch (error: any) {
-      setUploadMessage(`Error: ${error.message}`);
+    } catch (error) {
+      // setUploadMessage(`Error: ${error.message}`);
+      console.error("Error uploading file:", error);
+      setUploadMessage("An error occurred while uploading the file.");
     } finally {
       setIsProcessing(false);
     }
